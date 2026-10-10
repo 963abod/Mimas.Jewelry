@@ -38,7 +38,7 @@ export const Navbar: React.FC = () => {
             <div className="hidden sm:flex items-center gap-4 text-[#4A443F]">
               <span>عيار 21: <strong className="text-[#2C2724] font-bold">{price21 ? `${price21} / غرام` : goldLoading ? "جارٍ التحميل..." : "غير متاح"}</strong></span>
               <span className="text-[#C5A880]">|</span>
-              <span>عيار 18: <strong className="text-[#2C2724] font-bold">{price18 ? `${price18} / غرام` : goldLoading ? "جارٍ التحميل..." : "غير متاح"}</strong></span>
+              <span>عيار 18: <strong className="text-[#2C2724] font-bold">{price18 ? `${price18} / غرام` : goldLoading ? "جارٍ التحميل..." : "غير متاح"}</strong></span><a href="https://gold-api.com/docs" target="_blank" rel="noopener noreferrer" className="text-[10px] underline text-[#8C6D37]">المصدر: Gold API</a>
             </div>
           </div>
           <div className="flex items-center gap-3 text-[#8A827A] text-[11px]">
@@ -122,8 +122,8 @@ export const Navbar: React.FC = () => {
               <TrendingUp className="w-3.5 h-3.5" /> سعر الذهب العالمي المرجعي:
             </div>
             <div className="flex justify-between text-[#4A443F]">
-              <span>عيار 21: <strong>{price21 ?? (goldLoading ? "جارٍ التحميل..." : "غير متاح")}</strong></span>
-              <span>عيار 18: <strong>{price18 ?? (goldLoading ? "جارٍ التحميل..." : "غير متاح")}</strong></span>
+              <span>عيار 21: <strong>{price21 ?? (goldLoading ? "جارٍ التحميل..." : "غير متاح")} / غرام</strong></span>
+              <span>عيار 18: <strong>{price18 ?? (goldLoading ? "جارٍ التحميل..." : "غير متاح")} / غرام</strong></span><p className="text-[10px] text-[#8A827A]">بالدولار الأمريكي، دون مصنعية. <a href="https://gold-api.com/docs" target="_blank" rel="noopener noreferrer" className="underline">المصدر: Gold API</a></p>
             </div>
           </div>
 
