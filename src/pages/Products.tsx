@@ -51,13 +51,13 @@ export const Products: React.FC = () => {
     },
     {
       id: 'p3',
-      name: 'سوار التراث السعودي المجدول',
+      name: 'السوار الذهبي المجدول',
       category: 'bracelets',
       categoryLabel: 'أساور',
       purity: 'عيار 21',
       weight: '24.8 جرام',
       image: 'https://images.unsplash.com/photo-1611591475155-4282faa23235?auto=format&fit=crop&w=800&q=80',
-      description: 'سوار ذهبي عريض بنقوش يدوية تقليدية تظهر أصل الصياغة الوطنية.',
+      description: 'سوار ذهبي عريض بنقوش يدوية تقليدية تُبرز تفاصيل التصميم.',
     },
     {
       id: 'p4',
