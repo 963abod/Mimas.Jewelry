@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useGoldPrice, goldPriceForKarat, formatUsd } from '../hooks/useGoldPrice';
-import { useGoldPrice, goldPriceForKarat, formatUsd } from '../hooks/useGoldPrice';
 import { Sparkles, Phone, Scale, Filter, CheckCircle2 } from 'lucide-react';
 
 interface Product {
@@ -17,7 +16,6 @@ interface Product {
 
 export const Products: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
-  const { pricePerGram24K, loading: goldLoading } = useGoldPrice();
   const { pricePerGram24K, loading: goldLoading } = useGoldPrice();
 
   const categories = [
