@@ -38,7 +38,8 @@ export const Navbar: React.FC = () => {
             <div className="hidden sm:flex items-center gap-4 text-[#4A443F]">
               <span>عيار 21: <strong className="text-[#2C2724] font-bold">{price21 ? `${price21} / غرام (USD)` : goldLoading ? "جارٍ التحميل..." : "غير متاح"}</strong></span>
               <span className="text-[#C5A880]">|</span>
-              <span>عيار 18: <strong className="text-[#2C2724] font-bold">{price18 ? `${price18} / غرام (USD)` : goldLoading ? "جارٍ التحميل..." : "غير متاح"}</strong></span><a href="https://gold-api.com/docs" target="_blank" rel="noopener noreferrer" className="text-[10px] underline text-[#8C6D37]">المصدر: Gold API</a>
+              <span>عيار 18: <strong className="text-[#2C2724] font-bold">{price18 ? `${price18} / غرام (USD)` : goldLoading ? "جارٍ التحميل..." : "غير متاح"}</strong></span>
+              <a href="https://gold-api.com/docs" target="_blank" rel="noopener noreferrer" className="text-[10px] underline text-[#8C6D37]">المصدر: Gold API</a>
             </div>
           </div>
           <div className="flex items-center gap-3 text-[#8A827A] text-[11px]">
@@ -117,13 +118,16 @@ export const Navbar: React.FC = () => {
       {mobileMenuOpen && (
         <div className="md:hidden bg-[#FAF8F5] border-b border-[#C5A880]/30 px-4 pt-3 pb-6 space-y-3 shadow-lg animate-fadeIn">
           {/* Mobile Gold Price info */}
-          <div className="p-3 bg-[#F4EFEA] rounded-lg border border-[#C5A880]/20 text-xs space-y-1">
+          <div className="p-3 bg-[#F4EFEA] rounded-lg border border-[#C5A880]/20 text-xs space-y-2">
             <div className="font-bold text-[#8C6D37] flex items-center gap-1.5">
               <TrendingUp className="w-3.5 h-3.5" /> سعر الذهب العالمي المرجعي:
             </div>
-            <div className="flex justify-between text-[#4A443F]">
+            <div className="flex flex-col gap-1 text-[#4A443F]">
               <span>عيار 21: <strong>{price21 ?? (goldLoading ? "جارٍ التحميل..." : "غير متاح")} / غرام</strong></span>
-              <span>عيار 18: <strong>{price18 ?? (goldLoading ? "جارٍ التحميل..." : "غير متاح")} / غرام</strong></span></div><p className="text-[10px] text-[#8A827A] mt-1">بالدولار الأمريكي، دون مصنعية. <a href="https://gold-api.com/docs" target="_blank" rel="noopener noreferrer" className="underline">المصدر: Gold API</a></p></div>
+              <span>عيار 18: <strong>{price18 ?? (goldLoading ? "جارٍ التحميل..." : "غير متاح")} / غرام</strong></span>
+            </div>
+            <p className="text-[10px] text-[#8A827A]">بالدولار الأمريكي، دون مصنعية. <a href="https://gold-api.com/docs" target="_blank" rel="noopener noreferrer" className="underline">المصدر: Gold API</a></p>
+          </div>
 
           <div className="flex flex-col space-y-2 pt-2">
             {navLinks.map((link) => (
