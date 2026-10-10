@@ -13,9 +13,9 @@ export const Footer: React.FC = () => {
               <div className="w-12 h-12 rounded-full bg-[#C5A880]/20 flex items-center justify-center text-[#8C6D37] mb-1">
                 <ShieldCheck className="w-6 h-6" />
               </div>
-              <h4 className="font-bold text-[#2C2724] text-lg">ذهب عيار 21 و 18 مضمون</h4>
+              <h4 className="font-bold text-[#2C2724] text-lg">اسأل عن العيار والوزن</h4>
               <p className="text-sm text-[#8A827A] leading-relaxed">
-                كافة قطعنا مختومة بختم العيار ومصحوبة بكرت ضمان ومواصفات معتمدة رسمياً.
+                تأكد من عيار القطعة ووزنها وتفاصيلها مباشرةً قبل الشراء.
               </p>
             </div>
 
@@ -25,7 +25,7 @@ export const Footer: React.FC = () => {
               </div>
               <h4 className="font-bold text-[#2C2724] text-lg">صياغة متقنة ودقيقة</h4>
               <p className="text-sm text-[#8A827A] leading-relaxed">
-                تصاميم حصرية تجمع بين التراث الذهبي العريق وأرقى خطوط الموضة العالمية.
+                تعرّف على التشكيلات المعروضة واسأل عن القطع المتوفرة حالياً.
               </p>
             </div>
 
