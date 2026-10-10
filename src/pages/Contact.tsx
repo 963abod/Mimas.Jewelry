@@ -1,5 +1,5 @@
 import React from 'react';
-import { MapPin, Phone, MessageSquare, Clock, Send } from 'lucide-react';
+import { MapPin, MessageSquare, Clock, Send } from 'lucide-react';
 const WHATSAPP_NUMBER = '963967818728';
 export const Contact: React.FC = () => {
   const whatsappLink = (message: string) => `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
