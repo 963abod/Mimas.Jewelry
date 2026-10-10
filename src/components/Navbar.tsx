@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
+import { useGoldPrice, goldPriceForKarat, formatUsd } from '../hooks/useGoldPrice';
 import { Link, useLocation } from 'react-router-dom';
 import { Phone, Menu, X, Sparkles, TrendingUp } from 'lucide-react';
 
 export const Navbar: React.FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { pricePerGram24K, loading: goldLoading, error: goldError } = useGoldPrice();
+  const price21 = pricePerGram24K ? formatUsd(goldPriceForKarat(pricePerGram24K, 21)) : null;
+  const price18 = pricePerGram24K ? formatUsd(goldPriceForKarat(pricePerGram24K, 18)) : null;
   const location = useLocation();
 
   const navLinks = [
@@ -29,18 +33,18 @@ export const Navbar: React.FC = () => {
           <div className="flex items-center gap-3">
             <span className="inline-flex items-center gap-1.5 bg-[#C5A880]/15 text-[#8C6D37] px-2.5 py-0.5 rounded-full font-bold">
               <TrendingUp className="w-3.5 h-3.5" />
-              أسعار الذهب الرسمية اليوم
+              سعر الذهب العالمي المرجعي
             </span>
             <div className="hidden sm:flex items-center gap-4 text-[#4A443F]">
-              <span>عيار 21: <strong className="text-[#2C2724] font-bold">285.50 ر.س / جرام</strong></span>
+              <span>عيار 21: <strong className="text-[#2C2724] font-bold">{price21 ? `${price21} / غرام` : goldLoading ? "جارٍ التحميل..." : "غير متاح"}</strong></span>
               <span className="text-[#C5A880]">|</span>
-              <span>عيار 18: <strong className="text-[#2C2724] font-bold">244.70 ر.س / جرام</strong></span>
+              <span>عيار 18: <strong className="text-[#2C2724] font-bold">{price18 ? `${price18} / غرام` : goldLoading ? "جارٍ التحميل..." : "غير متاح"}</strong></span>
             </div>
           </div>
           <div className="flex items-center gap-3 text-[#8A827A] text-[11px]">
-            <span className="hidden md:inline">صياغة سعودية وإيطالية فاخرة</span>
+            <span className="hidden md:inline">مجوهرات الميماس — حلب، سوريا</span>
             <span className="hidden md:inline">•</span>
-            <span className="text-[#8C6D37] font-semibold">شحن آمن لجميع مناطق المملكة</span>
+            <span className="text-[#8C6D37] font-semibold">تواصل مباشر عبر واتساب</span>
           </div>
         </div>
       </div>
@@ -87,7 +91,7 @@ export const Navbar: React.FC = () => {
         {/* Desktop WhatsApp CTA */}
         <div className="hidden md:flex items-center gap-3">
           <a
-            href={`https://wa.me/966500000000?text=${whatsappMessage}`}
+            href={`https://wa.me/963967818728?text=${whatsappMessage}`}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-[#C5A880] to-[#B89758] text-white font-medium text-sm hover:from-[#B89758] hover:to-[#8C6D37] transition-all shadow-sm hover:shadow group"
@@ -115,11 +119,11 @@ export const Navbar: React.FC = () => {
           {/* Mobile Gold Price info */}
           <div className="p-3 bg-[#F4EFEA] rounded-lg border border-[#C5A880]/20 text-xs space-y-1">
             <div className="font-bold text-[#8C6D37] flex items-center gap-1.5">
-              <TrendingUp className="w-3.5 h-3.5" /> أسعار الذهب الحالية:
+              <TrendingUp className="w-3.5 h-3.5" /> سعر الذهب العالمي المرجعي:
             </div>
             <div className="flex justify-between text-[#4A443F]">
-              <span>عيار 21: <strong>285.50 ر.س</strong></span>
-              <span>عيار 18: <strong>244.70 ر.س</strong></span>
+              <span>عيار 21: <strong>{price21 ?? (goldLoading ? "جارٍ التحميل..." : "غير متاح")}</strong></span>
+              <span>عيار 18: <strong>{price18 ?? (goldLoading ? "جارٍ التحميل..." : "غير متاح")}</strong></span>
             </div>
           </div>
 
@@ -142,7 +146,7 @@ export const Navbar: React.FC = () => {
 
           <div className="pt-2">
             <a
-              href={`https://wa.me/966500000000?text=${whatsappMessage}`}
+              href={`https://wa.me/963967818728?text=${whatsappMessage}`}
               target="_blank"
               rel="noopener noreferrer"
               className="w-full flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-gradient-to-r from-[#C5A880] to-[#B89758] text-white font-medium text-sm shadow"
