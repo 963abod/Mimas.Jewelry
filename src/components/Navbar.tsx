@@ -1,10 +1,14 @@
 import React, { useState } from 'react';
 import { useGoldPrice, goldPriceForKarat, formatUsd } from '../hooks/useGoldPrice';
+import { useGoldPrice, goldPriceForKarat, formatUsd } from '../hooks/useGoldPrice';
 import { Link, useLocation } from 'react-router-dom';
 import { Phone, Menu, X, Sparkles, TrendingUp } from 'lucide-react';
 
 export const Navbar: React.FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { pricePerGram24K, loading: goldLoading, error: goldError } = useGoldPrice();
+  const price21 = pricePerGram24K ? formatUsd(goldPriceForKarat(pricePerGram24K, 21)) : null;
+  const price18 = pricePerGram24K ? formatUsd(goldPriceForKarat(pricePerGram24K, 18)) : null;
   const { pricePerGram24K, loading: goldLoading, error: goldError } = useGoldPrice();
   const price21 = pricePerGram24K ? formatUsd(goldPriceForKarat(pricePerGram24K, 21)) : null;
   const price18 = pricePerGram24K ? formatUsd(goldPriceForKarat(pricePerGram24K, 18)) : null;
