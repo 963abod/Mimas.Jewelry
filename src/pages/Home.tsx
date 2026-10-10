@@ -24,7 +24,7 @@ export const Home: React.FC = () => {
       id: 'bracelets',
       title: 'أساور وبناجر التراث العريق',
       subtitle: 'عيار 21 | نقوش يدوية',
-      description: 'أساور ذهبية أصيلة تروي حكاية الأصالة والتراث الذهبي السعودي.',
+      description: 'أساور ذهبية بتصاميم تجمع بين الطابع الكلاسيكي واللمسات العصرية.',
       image: 'https://images.unsplash.com/photo-1611591475155-4282faa23235?auto=format&fit=crop&w=800&q=80',
       tag: 'أصالة وتراث'
     },
@@ -41,7 +41,7 @@ export const Home: React.FC = () => {
   const valueBadges = [
     {
       icon: <ShieldCheck className="w-8 h-8 text-[#8C6D37]" />,
-      title: 'ذهب عيار 21 و 18 مضمون',
+      title: 'اسأل عن عيار القطعة',
       desc: 'اسألي عن العيار والوزن والتفاصيل المتاحة لكل قطعة قبل الشراء.'
     },
     {
@@ -109,7 +109,7 @@ export const Home: React.FC = () => {
             <div className="pt-8 border-t border-[#C5A880]/20 grid grid-cols-3 gap-4 text-center lg:text-right max-w-md mx-auto lg:mx-0">
               <div>
                 <p className="text-2xl font-bold text-[#8C6D37]">21K & 18K</p>
-                <p className="text-xs text-[#8A827A] mt-0.5">عيارات مضمونة</p>
+                <p className="text-xs text-[#8A827A] mt-0.5">عيارات متنوعة</p>
               </div>
               <div>
                 <p className="text-2xl font-bold text-[#8C6D37]">18K / 21K</p>
