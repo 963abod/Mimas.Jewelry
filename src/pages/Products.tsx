@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useGoldPrice, goldPriceForKarat, formatUsd } from '../hooks/useGoldPrice';
 import { Sparkles, Phone, Scale, Filter, CheckCircle2 } from 'lucide-react';
 
 interface Product {
@@ -8,7 +9,6 @@ interface Product {
   categoryLabel: string;
   purity: 'عيار 21' | 'عيار 18';
   weight: string;
-  priceEstimate: string;
   image: string;
   description: string;
   isPopular?: boolean;
@@ -16,6 +16,7 @@ interface Product {
 
 export const Products: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
+  const { pricePerGram24K, loading: goldLoading } = useGoldPrice();
 
   const categories = [
     { id: 'all', label: 'الكل' },
@@ -33,7 +34,6 @@ export const Products: React.FC = () => {
       categoryLabel: 'أطقم كاملة',
       purity: 'عيار 21',
       weight: '48.5 جرام',
-      priceEstimate: '13,850 ر.س',
       image: 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=800&q=80',
       description: 'طقم زفاف فاخر يتضمن عقد، أساور، وأقراط بتصاميم مستوحاة من الملكية الأصيلة.',
       isPopular: true,
@@ -45,7 +45,6 @@ export const Products: React.FC = () => {
       categoryLabel: 'عقود وسلاسل',
       purity: 'عيار 18',
       weight: '16.2 جرام',
-      priceEstimate: '3,960 ر.س',
       image: 'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=800&q=80',
       description: 'عقد ذهبي مرصع باللؤلؤ الطبيعي المصفي يمنح لمسة أنثوية ناعمة.',
       isPopular: true,
@@ -57,7 +56,6 @@ export const Products: React.FC = () => {
       categoryLabel: 'أساور',
       purity: 'عيار 21',
       weight: '24.8 جرام',
-      priceEstimate: '7,080 ر.س',
       image: 'https://images.unsplash.com/photo-1611591475155-4282faa23235?auto=format&fit=crop&w=800&q=80',
       description: 'سوار ذهبي عريض بنقوش يدوية تقليدية تظهر أصل الصياغة الوطنية.',
     },
@@ -68,7 +66,6 @@ export const Products: React.FC = () => {
       categoryLabel: 'خواتم',
       purity: 'عيار 18',
       weight: '6.4 جرام',
-      priceEstimate: '1,850 ر.س',
       image: 'https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=800&q=80',
       description: 'خاتم ذهب أصفر ناعم يتوسطه حجر فاخر مصقول بكل حرفية.',
     },
@@ -79,7 +76,6 @@ export const Products: React.FC = () => {
       categoryLabel: 'أطقم كاملة',
       purity: 'عيار 18',
       weight: '32.1 جرام',
-      priceEstimate: '8,200 ر.س',
       image: 'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=800&q=80',
       description: 'طقم عرايسي عصري خفيف يجمع بين الرقة والفخامة اليومية.',
     },
@@ -90,7 +86,6 @@ export const Products: React.FC = () => {
       categoryLabel: 'عقود وسلاسل',
       purity: 'عيار 21',
       weight: '11.5 جرام',
-      priceEstimate: '3,280 ر.س',
       image: 'https://images.unsplash.com/photo-1602751584552-8ba73aad10e1?auto=format&fit=crop&w=800&q=80',
       description: 'سلسلة ناعمة مع تعليقة فراشة ذهبية مصوغة بأعلى مستويات الإتقان.',
     },
@@ -101,7 +96,6 @@ export const Products: React.FC = () => {
       categoryLabel: 'أساور',
       purity: 'عيار 21',
       weight: '38.0 جرام',
-      priceEstimate: '10,840 ر.س',
       image: 'https://images.unsplash.com/photo-1598560917505-59a3ad559071?auto=format&fit=crop&w=800&q=80',
       description: 'مجموعة بناجر ذهبية مقفلة بلون برّاق ولمعان يدوم مدى الحياة.',
       isPopular: true,
@@ -113,7 +107,6 @@ export const Products: React.FC = () => {
       categoryLabel: 'خواتم',
       purity: 'عيار 21',
       weight: '8.2 جرام',
-      priceEstimate: '2,340 ر.س',
       image: 'https://images.unsplash.com/photo-1573408301185-9146fe634ad0?auto=format&fit=crop&w=800&q=80',
       description: 'خاتم مصاغ بأسلوب معماري مودرن يناسب محبي العصري الجريء.',
     },
@@ -124,8 +117,8 @@ export const Products: React.FC = () => {
     : products.filter(p => p.category === selectedCategory);
 
   const getWhatsAppLink = (productName: string, purity: string) => {
-    const text = `مرحباً مجوهرات الميماس، أود الاستفسار وطلب القطعة التالية: (${productName} - ${purity}). هل هي متوفرة حالياً؟`;
-    return `https://wa.me/966500000000?text=${encodeURIComponent(text)}`;
+    const text = `مرحباً مجوهرات الميماس في حلب، أود الاستفسار عن القطعة: (${productName} - ${purity}). هل هي متوفرة؟ وما وزنها وسعرها النهائي؟`;
+    return `https://wa.me/963967818728?text=${encodeURIComponent(text)}`;
   };
 
   return (
@@ -140,7 +133,7 @@ export const Products: React.FC = () => {
           مجموعات مجوهرات الميماس
         </h1>
         <p className="text-base text-[#4A443F] max-w-2xl mx-auto leading-relaxed">
-          تصفحي تشكيلاتنا المتنوعة المصوغة بالكامل من الذهب الخالص عيار 21 وعيار 18. اختر القطعة المفضلة واطلبها مباشرة عبر واتساب.
+          تعرّف على نماذج من التشكيلات. الوزن والسعر المعروضان تقديريان، ويمكنك الاستفسار عن القطعة المتوفرة والسعر النهائي عبر واتساب.
         </p>
       </section>
 
@@ -221,8 +214,8 @@ export const Products: React.FC = () => {
                     <strong className="text-[#2C2724] font-bold">{product.weight}</strong>
                   </div>
                   <div className="flex items-center justify-between text-xs">
-                    <span className="text-[#8A827A]">السعر التقديري:</span>
-                    <strong className="text-base text-[#8C6D37] font-bold">{product.priceEstimate}</strong>
+                    <span className="text-[#8A827A]">قيمة الذهب الخام التقريبية:</span>
+                    <strong className="text-base text-[#8C6D37] font-bold">{pricePerGram24K ? formatUsd(parseFloat(product.weight) * goldPriceForKarat(pricePerGram24K, product.purity === 'عيار 21' ? 21 : 18)) : goldLoading ? 'جارٍ جلب السعر...' : 'غير متاح حالياً'}</strong>
                   </div>
                 </div>
 
@@ -248,16 +241,16 @@ export const Products: React.FC = () => {
           <div className="flex items-center gap-3">
             <CheckCircle2 className="w-6 h-6 text-[#8C6D37] shrink-0" />
             <p className="text-xs sm:text-sm text-[#4A443F]">
-              تنويه: الأسعار التقديرية الموضحة تخضع للتحديث المباشر بناءً على سعر جرام الذهب الرسمي وقت الشراء والمصنعية.
+              السعر المرجعي يُجلب من سوق الذهب العالمي بالدولار ويُحسب بحسب العيار والوزن المدرج. الأوزان المعروضة توضيحية ويجب تأكيد الوزن الفعلي من المعرض؛ القيمة لا تشمل المصنعية أو الأحجار أو الضرائب.
             </p>
           </div>
           <a
-            href="https://wa.me/966500000000"
+            href="https://wa.me/963967818728"
             target="_blank"
             rel="noopener noreferrer"
             className="shrink-0 text-xs font-bold text-[#8C6D37] underline hover:text-[#2C2724]"
           >
-            تأكيد السعر المباشر الآن
+            تأكيد السعر النهائي عبر واتساب
           </a>
         </div>
       </section>
