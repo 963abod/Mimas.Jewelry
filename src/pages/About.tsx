@@ -115,7 +115,7 @@ export const About: React.FC = () => {
               <HeartHandshake className="w-8 h-8 text-[#8C6D37] mx-auto" />
               <h3 className="font-bold text-[#2C2724]">العلاقة الممتدة</h3>
               <p className="text-xs text-[#4A443F] leading-relaxed">
-                نقدم خدمات الصيانة، التلميع، والتنظيف الدائم لقطعكم الثمينة عبر فروعنا.
+                للاستفسار عن الخدمات المتاحة، تواصل مع المعرض مباشرةً عبر واتساب.
               </p>
             </div>
           </div>
