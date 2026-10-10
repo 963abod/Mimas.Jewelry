@@ -42,17 +42,17 @@ export const Home: React.FC = () => {
     {
       icon: <ShieldCheck className="w-8 h-8 text-[#8C6D37]" />,
       title: 'ذهب عيار 21 و 18 مضمون',
-      desc: 'شهادات جودة معتمدة مع كل قطعة ذهب مع وختم العيار الرسمي.'
+      desc: 'اسألي عن العيار والوزن والتفاصيل المتاحة لكل قطعة قبل الشراء.'
     },
     {
       icon: <Award className="w-8 h-8 text-[#8C6D37]" />,
       title: 'صياغة متقنة ودقيقة',
-      desc: 'بأيدي أفضل الصاغة الحرفيين وبأعلى المعايير العالمية.'
+      desc: 'تصاميم متنوعة مع تفاصيل واضحة لكل قطعة عند الاستفسار.'
     },
     {
       icon: <Gem className="w-8 h-8 text-[#8C6D37]" />,
       title: 'أسعار رسمية شفافة',
-      desc: 'حساب دقيق لوزن الذهب والمصنعية وفق مؤشرات السوق المباشرة.'
+      desc: 'مرجع عالمي لسعر الذهب، مع تأكيد السعر النهائي والوزن من المعرض.'
     }
   ];
 
@@ -82,7 +82,7 @@ export const Home: React.FC = () => {
             </h1>
 
             <p className="text-base sm:text-lg text-[#4A443F] max-w-2xl leading-relaxed mx-auto lg:mx-0">
-              نجمع بين عراقة الصياغة السعودية واللمسات العالمية الفاخرة. استكشفي أحدث تشكيلاتنا المبتكرة من أطقم الذهب، الخواتم، والعقود المصوغة بعناية مطلقة لتعكس جمالكِ الفريد.
+              اكتشفي تشكيلات مجوهرات الميماس من الأطقم والخواتم والعقود والأساور، وتواصلي معنا في حلب للاستفسار عن القطع المتوفرة والأسعار.
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
@@ -95,7 +95,7 @@ export const Home: React.FC = () => {
               </Link>
 
               <a
-                href={`https://wa.me/966500000000?text=${whatsappMessage}`}
+                href={`https://wa.me/963967818728?text=${whatsappMessage}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full sm:w-auto px-8 py-4 rounded-full bg-[#F4EFEA] border border-[#C5A880]/60 text-[#2C2724] font-bold text-base hover:bg-[#EFE9E0] transition-all flex items-center justify-center gap-2"
@@ -112,12 +112,12 @@ export const Home: React.FC = () => {
                 <p className="text-xs text-[#8A827A] mt-0.5">عيارات مضمونة</p>
               </div>
               <div>
-                <p className="text-2xl font-bold text-[#8C6D37]">30+</p>
-                <p className="text-xs text-[#8A827A] mt-0.5">عاماً من الخبرة</p>
+                <p className="text-2xl font-bold text-[#8C6D37]">18K / 21K</p>
+                <p className="text-xs text-[#8A827A] mt-0.5">عيارات شائعة</p>
               </div>
               <div>
                 <p className="text-2xl font-bold text-[#8C6D37]">100%</p>
-                <p className="text-xs text-[#8A827A] mt-0.5">ضمان أصالة ومعتمدة</p>
+                <p className="text-xs text-[#8A827A] mt-0.5">استفسار مباشر عبر واتساب</p>
               </div>
             </div>
           </div>
@@ -134,7 +134,7 @@ export const Home: React.FC = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-[#2C2724]/60 via-transparent to-transparent flex flex-col justify-end p-6 text-white">
                   <span className="text-xs uppercase tracking-widest text-[#D4AF37] font-bold">تشكيلة الميماس الملكية</span>
                   <p className="text-xl font-serif font-bold mt-1">طقم ذهب عيار 21 فاخر</p>
-                  <p className="text-xs text-[#FAF8F5]/80 mt-1">مصوغ بدقة عالية وحرفية سعودية متقنة</p>
+                  <p className="text-xs text-[#FAF8F5]/80 mt-1">تفاصيل القطعة ووزنها يُؤكَّدان عند الاستفسار</p>
                 </div>
               </div>
             </div>
@@ -234,7 +234,7 @@ export const Home: React.FC = () => {
             </p>
             <div className="pt-2">
               <a
-                href={`https://wa.me/966500000000?text=${encodeURIComponent('مرحباً مجوهرات الميماس، أود الاستفسار عن تفصيل وصياغة قطعة خاصة.')}`}
+                href={`https://wa.me/963967818728?text=${encodeURIComponent('مرحباً مجوهرات الميماس، أود الاستفسار عن تفصيل وصياغة قطعة خاصة.')}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-[#C5A880] to-[#D4AF37] text-white font-bold text-sm hover:opacity-90 transition-opacity"
