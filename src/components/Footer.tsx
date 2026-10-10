@@ -119,7 +119,7 @@ export const Footer: React.FC = () => {
               <div className="flex items-start gap-2">
                 <Clock className="w-4 h-4 text-[#8C6D37] mt-1 shrink-0" />
                 <div>
-                  <p className="font-medium text-[#2C2724]">موقع المعرض:</p>
+                  <p className="font-medium text-[#2C2724]">تفاصيل الزيارة:</p>
                   <p className="text-xs text-[#8A827A]">يرجى التواصل عبر واتساب للتأكد</p>
                 </div>
               </div>
