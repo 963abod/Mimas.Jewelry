@@ -68,7 +68,7 @@ export const Footer: React.FC = () => {
               <a href="https://twitter.com" target="_blank" rel="noreferrer" className="w-9 h-9 rounded-full bg-[#FAF8F5] border border-[#C5A880]/30 flex items-center justify-center text-[#8C6D37] hover:bg-[#C5A880] hover:text-white transition-colors" aria-label="تويتر">
                 <Share2 className="w-4 h-4" />
               </a>
-              <a href="https://wa.me/966500000000" target="_blank" rel="noreferrer" className="w-9 h-9 rounded-full bg-[#FAF8F5] border border-[#C5A880]/30 flex items-center justify-center text-[#8C6D37] hover:bg-[#C5A880] hover:text-white transition-colors" aria-label="واتساب">
+              <a href="https://wa.me/963967818728" target="_blank" rel="noreferrer" className="w-9 h-9 rounded-full bg-[#FAF8F5] border border-[#C5A880]/30 flex items-center justify-center text-[#8C6D37] hover:bg-[#C5A880] hover:text-white transition-colors" aria-label="واتساب">
                 <MessageCircle className="w-4 h-4" />
               </a>
             </div>
@@ -97,7 +97,7 @@ export const Footer: React.FC = () => {
               </li>
               <li>
                 <Link to="/contact" className="hover:text-[#8C6D37] transition-colors flex items-center gap-1.5">
-                  <span className="text-[#C5A880]">‹</span> المعارض وفروع التواصل
+                  <span className="text-[#C5A880]">‹</span> الفرع والتواصل
                 </Link>
               </li>
             </ul>
@@ -106,21 +106,21 @@ export const Footer: React.FC = () => {
           {/* Store Hours & Details */}
           <div className="space-y-4">
             <h3 className="font-bold text-[#2C2724] text-base border-b border-[#C5A880]/30 pb-2 inline-block">
-              أوقات العمل
+              موقع المعرض
             </h3>
             <div className="space-y-2 text-sm text-[#4A443F]">
               <div className="flex items-start gap-2">
                 <Clock className="w-4 h-4 text-[#8C6D37] mt-1 shrink-0" />
                 <div>
-                  <p className="font-medium text-[#2C2724]">السبت - الخميس:</p>
-                  <p className="text-xs text-[#8A827A]">09:30 صباحاً - 11:30 مساءً</p>
+                  <p className="font-medium text-[#2C2724]">الفرع:</p>
+                  <p className="text-xs text-[#8A827A]">حلب، سوريا</p>
                 </div>
               </div>
               <div className="flex items-start gap-2">
                 <Clock className="w-4 h-4 text-[#8C6D37] mt-1 shrink-0" />
                 <div>
-                  <p className="font-medium text-[#2C2724]">الجمعة:</p>
-                  <p className="text-xs text-[#8A827A]">04:00 عصراً - 11:30 مساءً</p>
+                  <p className="font-medium text-[#2C2724]">أوقات العمل:</p>
+                  <p className="text-xs text-[#8A827A]">يرجى التواصل عبر واتساب للتأكد</p>
                 </div>
               </div>
             </div>
@@ -134,11 +134,11 @@ export const Footer: React.FC = () => {
             <div className="space-y-3 text-sm">
               <div className="flex items-start gap-2.5">
                 <MapPin className="w-4 h-4 text-[#8C6D37] mt-1 shrink-0" />
-                <span>المملكة العربية السعودية، الرياض - سوق الذهب الرئيسي، شارع العليا</span>
+                <span>حلب، سوريا</span>
               </div>
               <div className="flex items-center gap-2.5">
                 <Phone className="w-4 h-4 text-[#8C6D37] shrink-0" />
-                <span dir="ltr" className="text-right font-semibold">+966 50 000 0000</span>
+                <span dir="ltr" className="text-right font-semibold">+963 967 818 728</span>
               </div>
             </div>
           </div>
@@ -149,7 +149,7 @@ export const Footer: React.FC = () => {
       <div className="border-t border-[#C5A880]/20 py-4 bg-[#EFE9E0]/80 text-center text-xs text-[#8A827A]">
         <div className="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row justify-between items-center gap-2">
           <p>© {new Date().getFullYear()} مجوهرات الميماس (Al-Mimas Jewelry). جميع الحقوق محفوظة.</p>
-          <p className="text-[11px]">صياغة فاخرة وسجل تجاري معتمد برقم 1010000000</p>
+          <p className="text-[11px]">مجوهرات الميماس — حلب، سوريا</p>
         </div>
       </div>
     </footer>
