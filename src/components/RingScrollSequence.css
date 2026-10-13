@@ -92,7 +92,11 @@
 }
 .mimas-ring__edge--top {
   top: 0;
-  background: linear-gradient(to bottom, var(--ring-bg) var(--ring-bar-y, 0px), rgba(7, 6, 5, 0.45) calc(var(--ring-bar-y, 0px) + var(--ring-feather-y, 0px) * 0.4), rgba(7, 6, 5, 0) 100%);
+  background: linear-gradient(
+    to bottom,
+    #FAF7F2 0%,
+    rgba(250, 247, 242, 0) 100%
+  );
 }
 .mimas-ring__edge--bottom {
   bottom: 0;
