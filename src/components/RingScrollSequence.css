@@ -32,7 +32,7 @@
   position: absolute;
   inset: 0 0 auto 0;
   height: clamp(4rem, 14vh, 9rem);
-  background: linear-gradient(to bottom, #faf8f5 0%, rgba(250, 248, 245, 0.55) 35%, rgba(250, 248, 245, 0) 100%);
+  background: linear-gradient(to bottom, #FAF7F2 0%, rgba(250, 247, 242, 0.55) 35%, rgba(250, 247, 242, 0) 100%);
   z-index: 2;
   pointer-events: none;
 }
