@@ -1,0 +1,4 @@
+# Ring scroll-sequence frames are versioned by folder (/sequences/v1/...), so they can be cached forever.
+# Bump VERSION in scripts/build-sequences.mjs when the frames change.
+/sequences/*
+  Cache-Control: public, max-age=31536000, immutable
