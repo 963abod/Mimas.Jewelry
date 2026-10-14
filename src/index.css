@@ -4,23 +4,61 @@
   --font-tajawal: 'Tajawal', sans-serif;
   --font-amiri: 'Amiri', serif;
 
-  --color-mimas-cream: #FAF8F5;
-  --color-mimas-sand: #F4EFEA;
-  --color-mimas-pearl: #EFE9E0;
+  /* MIMAS dark luxury palette */
+  --color-mimas-cream: #070605;
+  --color-mimas-sand: #11100E;
+  --color-mimas-pearl: #181512;
   --color-mimas-gold: #C5A880;
   --color-mimas-bright-gold: #D4AF37;
   --color-mimas-brass: #B89758;
-  --color-mimas-dark-gold: #8C6D37;
-  --color-mimas-slate: #2C2724;
-  --color-mimas-espresso: #4A443F;
-  --color-mimas-soft-muted: #8A827A;
+  --color-mimas-dark-gold: #C5A880;
+  --color-mimas-slate: #F3EBDD;
+  --color-mimas-espresso: #D2C5B2;
+  --color-mimas-soft-muted: #A99B88;
+}
+
+:root {
+  color-scheme: dark;
+  background: #070605;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+  background-color: #070605;
 }
 
 body {
   font-family: var(--font-tajawal), system-ui, sans-serif;
-  background-color: #070605;
-  color: var(--color-mimas-slate);
+  color: #F3EBDD;
   overflow-x: hidden;
+}
+
+/* Keep older hard-coded light utility classes consistent with the dark MIMAS theme. */
+[class*="bg-[#FAF8F5]"] {
+  background-color: #070605 !important;
+}
+[class*="bg-[#F4EFEA]"] {
+  background-color: #11100E !important;
+}
+[class*="bg-[#EFE9E0]"] {
+  background-color: #181512 !important;
+}
+[class*="text-[#2C2724]"] {
+  color: #F3EBDD !important;
+}
+[class*="text-[#4A443F]"] {
+  color: #D2C5B2 !important;
+}
+[class*="text-[#8A827A]"] {
+  color: #A99B88 !important;
+}
+[class*="text-[#8C6D37]"] {
+  color: #C5A880 !important;
+}
+[class*="border-[#C5A880]"] {
+  border-color: rgb(197 168 128 / 25%) !important;
 }
 
 /* Custom scrollbar for luxury feel */
