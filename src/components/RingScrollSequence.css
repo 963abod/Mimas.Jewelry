@@ -1,0 +1,132 @@
+/*
+ * MIMAS ring scroll sequence — stage mechanics.
+ *
+ * Layout idea: the <section> is tall (stage + runway). Its only child, the stage, is `position: sticky`, so it stays
+ * pinned below the site header while the page scrolls through the runway. The engine turns "how far through the
+ * runway are we" into a frame index. When the runway ends the stage un-pins and the page continues normally.
+ *
+ * Units: `svh` (small viewport height) is used for every length so the layout does not change while mobile browser
+ * toolbars show/hide — otherwise the pinned stage would jitter during scrolling. `vh` is the fallback.
+ */
+.mimas-ring {
+  --ring-bg: #070605; /* matches the near-black of the footage */
+  --ring-header: 7rem; /* replaced at runtime with the measured site-header height */
+  --ring-stage-h: max(15rem, calc(100vh - var(--ring-header)));
+  --ring-runway: 320vh; /* scroll distance over which the sequence plays; identical for both orientations so rotating never shifts it */
+  position: relative;
+  height: calc(var(--ring-stage-h) + var(--ring-runway));
+  background: var(--ring-bg);
+  overflow-anchor: none; /* the browser must not "correct" the scroll position while the stage is pinned */
+}
+
+@supports (height: 100svh) {
+  .mimas-ring {
+    --ring-stage-h: max(15rem, calc(100svh - var(--ring-header)));
+    --ring-runway: 320svh;
+  }
+}
+
+/* Soft hand-off from the cream hero into the dark stage (scrolls away with the section). */
+.mimas-ring::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: clamp(4rem, 14vh, 9rem);
+  background: linear-gradient(
+    to bottom,
+    var(--ring-bg) 0%,
+    rgba(7, 6, 5, 0.65) 40%,
+    rgba(7, 6, 5, 0) 100%
+  );
+  z-index: 2;
+  pointer-events: none;
+}
+
+.mimas-ring__stage {
+  position: sticky;
+  top: var(--ring-header);
+  height: var(--ring-stage-h);
+  overflow: hidden;
+  background: var(--ring-bg);
+}
+
+.mimas-ring__canvas {
+  position: absolute;
+  inset: 0;
+  margin: auto; /* centres the contain-fitted frame; direction-agnostic (works in RTL) */
+  display: block;
+  /* width/height are set by the engine (contain fit, never cropped or stretched) */
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.mimas-ring[data-ready='true'] .mimas-ring__canvas {
+  opacity: 1;
+}
+
+/*
+ * Letterbox bars (only present when the viewport aspect differs from the footage's) are the page's near-black. The
+ * footage edges are not always dark, so a short gradient feathers the frame into the bar instead of a hard seam.
+ */
+.mimas-ring__edge {
+  position: absolute;
+  display: none;
+  pointer-events: none;
+}
+.mimas-ring__stage[data-bars-x='1'] .mimas-ring__edge--left,
+.mimas-ring__stage[data-bars-x='1'] .mimas-ring__edge--right {
+  display: block;
+  top: 0;
+  bottom: 0;
+  width: calc(var(--ring-bar-x, 0px) + var(--ring-feather-x, 0px));
+}
+.mimas-ring__stage[data-bars-y='1'] .mimas-ring__edge--top,
+.mimas-ring__stage[data-bars-y='1'] .mimas-ring__edge--bottom {
+  display: block;
+  left: 0;
+  right: 0;
+  height: calc(var(--ring-bar-y, 0px) + var(--ring-feather-y, 0px));
+}
+.mimas-ring__edge--left {
+  left: 0;
+  background: linear-gradient(to right, var(--ring-bg) var(--ring-bar-x, 0px), rgba(7, 6, 5, 0.45) calc(var(--ring-bar-x, 0px) + var(--ring-feather-x, 0px) * 0.4), rgba(7, 6, 5, 0) 100%);
+}
+.mimas-ring__edge--right {
+  right: 0;
+  background: linear-gradient(to left, var(--ring-bg) var(--ring-bar-x, 0px), rgba(7, 6, 5, 0.45) calc(var(--ring-bar-x, 0px) + var(--ring-feather-x, 0px) * 0.4), rgba(7, 6, 5, 0) 100%);
+}
+.mimas-ring__edge--top {
+  top: 0;
+  background: linear-gradient(
+    to bottom,
+    var(--ring-bg) var(--ring-bar-y, 0px),
+    rgba(7, 6, 5, 0.45) calc(var(--ring-bar-y, 0px) + var(--ring-feather-y, 0px) * 0.4),
+    rgba(7, 6, 5, 0) 100%
+  );
+}
+.mimas-ring__edge--bottom {
+  bottom: 0;
+  background: linear-gradient(to top, var(--ring-bg) var(--ring-bar-y, 0px), rgba(7, 6, 5, 0.45) calc(var(--ring-bar-y, 0px) + var(--ring-feather-y, 0px) * 0.4), rgba(7, 6, 5, 0) 100%);
+}
+
+/* Static fallback: reduced motion, data saver, very low memory, or a failed load. One still frame, no pinning. */
+.mimas-ring--static {
+  height: auto;
+  display: flex;
+  justify-content: center;
+}
+.mimas-ring__poster {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: var(--ring-stage-h);
+  aspect-ratio: 16 / 9;
+  object-fit: contain;
+}
+@media (orientation: portrait) {
+  .mimas-ring__poster {
+    width: auto;
+    max-width: 100%;
+    aspect-ratio: 9 / 16;
+  }
+}
